@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom Button Style (Override Tailwind's default if necessary) */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;  /* Smooth transition for hover */
+}
+
+/* Additional styles for responsiveness and custom classes */
+.task-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.task-list {
+  padding-left: 0;
+}
+
+.task-item {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.task-item:hover {
+  background-color: #e0e0e0;
+}
+
+/* Custom input fields styling */
+.input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Utility to handle centering a container */
+.container {
+  max-width: 1200px;
+  padding: 0 1rem;
+}
