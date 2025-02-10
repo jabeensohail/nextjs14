@@ -29,8 +29,8 @@ export default function TaskManager() {
   };
 
   return (
-    <div className="container">
-      <h1>Task Manager</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold text-center mb-6">Task Manager</h1>
 
       {/* Form to add a new task */}
       <form
@@ -39,16 +39,21 @@ export default function TaskManager() {
           createTask.mutate({ name: taskName });
           setTaskName("");
         }}
-        className="task-form"
+        className="task-form flex flex-col sm:flex-row gap-4 mb-6"
       >
         <input
           type="text"
           value={taskName}
           onChange={(e) => setTaskName(e.target.value)}
           placeholder="New Task"
-          className="input"
+          className="input p-2 border border-gray-300 rounded-md w-full sm:w-80"
         />
-        <button type="submit" className="button">Add Task</button>
+        <button
+          type="submit"
+          className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md w-full sm:w-auto ml-auto"
+        >
+          Add Task
+        </button>
       </form>
 
       {/* Display all tasks */}
@@ -59,27 +64,34 @@ export default function TaskManager() {
       ) : (
         <ul className="task-list">
           {tasksQuery.data?.map((task) => (
-            <li key={task.id} className="task-item">{task.name}</li>
+            <li key={task.id} className="task-item p-2 border-b border-gray-200">{task.name}</li>
           ))}
         </ul>
       )}
 
-      <div className="fetch-task">
-        <h2>Fetch Task by ID</h2>
-        <input
-          type="number"
-          placeholder="Enter Task ID"
-          value={taskId ?? ""}
-          onChange={(e) => setTaskId(Number(e.target.value))}
-          className="input"
-        />
-        <button onClick={handleFetchById} className="button">Fetch Task</button>
+      <div className="fetch-task mt-8">
+        <h2 className="text-xl font-semibold">Fetch Task by ID</h2>
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <input
+            type="number"
+            placeholder="Enter Task ID"
+            value={taskId ?? ""}
+            onChange={(e) => setTaskId(Number(e.target.value))}
+            className="input p-2 border border-gray-300 rounded-md w-full sm:w-80"
+          />
+          <button
+            onClick={handleFetchById}
+            className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md w-full sm:w-auto ml-auto"
+          >
+            Fetch Task
+          </button>
+        </div>
 
         {taskByIdQuery.isLoading && <p>Loading...</p>}
         {taskByIdQuery.error && <p>Error: {taskByIdQuery.error.message}</p>}
         {taskByIdQuery.data ? (
-          <div className="task-details">
-            <h3>Task Details</h3>
+          <div className="task-details mt-4 p-4 border border-gray-200 rounded-md">
+            <h3 className="font-semibold">Task Details</h3>
             <p>ID: {taskByIdQuery.data.id}</p>
             <p>Name: {taskByIdQuery.data.name}</p>
           </div>

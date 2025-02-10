@@ -11,6 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brown: {
+          500: "#6B4F30",  // Custom brown color for buttons
+          600: "#4B3C23",  // Darker brown for hover effect
+        },
       },
     },
   },
