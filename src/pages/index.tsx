@@ -1,6 +1,7 @@
 import { trpc } from "../utils/trpc";
 import { useState } from "react";
 import "../styles/global.css"; // Importing global styles
+import "../styles/tailwind.css";
 
 export default function TaskManager() {
   const [taskName, setTaskName] = useState("");
