@@ -56,7 +56,7 @@ export default function TaskManager() {
           createTask.mutate({ name: taskName });
           setTaskName(""); // Clear input after submitting
         }}
-        className="task-form flex flex-col sm:flex-row gap-4 mb-6"
+        className="task-form flex gap-4 mb-6" // Using Flexbox for the form layout
       >
         <input
           type="text"
@@ -67,7 +67,7 @@ export default function TaskManager() {
         />
         <button
           type="submit"
-          className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md w-full sm:w-auto ml-auto"
+          className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md w-full sm:w-auto"
         >
           Add Task
         </button>
@@ -92,17 +92,17 @@ export default function TaskManager() {
       {/* Fetch task by ID */}
       <div className="fetch-task mt-8">
         <h1 className="text-xl font-semibold">Fetch Task by ID</h1>
-        <div className="task-form flex flex-col sm:flex-row gap-4 mb-6 mt-6">
+        <div className="task-form flex items-center gap-4 mb-6 mt-6"> {/* Align items properly */}
           <input
             type="number"
             placeholder="Enter Task ID"
             value={taskId ?? ""}
             onChange={(e) => setTaskId(Number(e.target.value))}
-            className="input p-2 border border-gray-300 rounded-md w-full sm:w-80 mt-6"
+            className="input p-2 border border-gray-300 rounded-md w-full sm:w-80"
           />
           <button
             onClick={handleFetchById}
-            className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md w-full sm:w-auto ml-auto mt-6"
+            className="button bg-brown-500 hover:bg-brown-600 text-white py-2 px-4 rounded-md sm:w-auto"
           >
             Fetch Task
           </button>
